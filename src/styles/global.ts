@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import { css } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -17,12 +18,15 @@ const GlobalStyle = createGlobalStyle`
     scroll-behavior: smooth;
   }
   body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-    min-height: 100vh;
-    text-rendering: optimizeSpeed;
-    line-height: 1.5;
+    ${({ theme }) => css` 
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+      min-height: 100vh;
+      text-rendering: optimizeSpeed;
+      line-height: 1.5;
+      background: ${theme.blue};
+  `}
   }
   h1, h2, h3, h4, h5, h6, strong {
     font-weight: 500;
