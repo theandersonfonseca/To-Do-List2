@@ -7,7 +7,10 @@ type ToDoContainerType = {
 
 const ToDoContainer = ({children}: ToDoContainerType) => {
   return (
-    <S.Wrapper>{children}</S.Wrapper>
+    <S.Wrapper>
+      {children}
+      <S.RemoveCompleteTasks>Remover tarefas completas</S.RemoveCompleteTasks>
+    </S.Wrapper>
   );
 };
 
