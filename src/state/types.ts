@@ -34,7 +34,7 @@ export enum Actions {
 export type ActionsType = 
   | { type: Actions.selectList; payload: string}
   | { type: Actions.addList; payload: string}
-  | { type: Actions.removeList; payload: string}
+  | { type: Actions.removeList}
   | { type: Actions.addTask; payload: string}
   | { type: Actions.completeTask; payload: string}
   | { type: Actions.editTask; payload: string}
