@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 
 export const Wrapper = styled.header`
   ${({ theme }) => css`
+    height: 11rem;
     padding: 1.5rem;
     display: flex;
     width: 100%;
@@ -22,6 +23,7 @@ export const Wrapper = styled.header`
 
     @media(max-width: 900px) {
       flex-direction: column;
+      height: auto;
     }
   `}
 `;
@@ -42,15 +44,11 @@ export const Button = styled.button`
 `
 
 export const TaskForm = styled.form`
-  ${({ theme }) => css`
-    display: flex;
-    max-width: 100%;
-  `}
+  display: flex;
+  max-width: 100%;
 `
 export const TaskInput = styled.input`
-  ${({ theme }) => css`
-    width: 35rem;
-  `}
+  width: 35rem;
 `
 
 export const TaskButton = styled(Button)`
@@ -59,18 +57,16 @@ export const TaskButton = styled(Button)`
   `}
 `
 export const Lists = styled.div`
-  ${({ theme }) => css`
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 
-    @media(max-width: 900px) {
-      margin-top: 3rem;
-    }
+  @media(max-width: 900px) {
+    margin-top: 3rem;
+  }
 
-    @media(max-width: 450px) {
-      flex-direction: column; 
-    }
-  `}
+  @media(max-width: 450px) {
+    flex-direction: column; 
+  }
 `
 export const ListSelect = styled.select`
   ${({ theme }) => css`
@@ -100,22 +96,18 @@ export const NewListButton = styled(Button)`
 `
 
 export const NewListForm = styled.form`
-  ${({ theme }) => css`
-    display: flex;
+  display: flex;
 
-    @media(max-width: 900px) {
-      margin-top: 3rem;
-    }
+  @media(max-width: 900px) {
+    margin-top: 3rem;
+  }
 
-    @media(max-width: 450px) {
-      flex-direction: column; 
-    }
-  `}
+  @media(max-width: 450px) {
+    flex-direction: column; 
+  }
 `
 export const NewListInput = styled.input`
-  ${({ theme }) => css`
-    width: 25rem;
-  `}
+  width: 25rem;
 `
 
 export const NewListAddButton = styled(Button)`
