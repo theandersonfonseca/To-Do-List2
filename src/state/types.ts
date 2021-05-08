@@ -27,11 +27,10 @@ export enum Actions {
   removeList = 'REMOVE_LIST',
   addTask = 'ADD_TASK',
   completeTask = 'COMPLETE_TASK',
+  editingTask = 'EDITING_TASK',
   editTask = 'EDIT_TASK',
   removeTask = 'REMOVE_TASK',
   removeCompleteTasks = 'REMOVE_COMPLETE_TASKS',
-
-  editingTask = 'EDITING_TASK'
 }
 
 export type ActionsType = 
