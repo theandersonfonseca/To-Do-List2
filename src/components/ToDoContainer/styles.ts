@@ -20,11 +20,26 @@ export const Wrapper = styled.main`
   `}
 `;
 
-export const RemoveCompleteTasks = styled.span`
+export const WrapperControls = styled.div`
   ${({ theme }) => css` 
     position: absolute;
     bottom: 1rem;
     right: 1rem;
+  `}
+`
+
+export const RemoveCompleteTasks = styled.span`
+  ${({ theme }) => css` 
+    text-transform: uppercase;
+    color: ${theme.red};
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;    
+  `}
+`
+export const RemoveList = styled.span`
+  ${({ theme }) => css` 
+    margin-left: 3rem;
     text-transform: uppercase;
     color: ${theme.red};
     font-weight: 600;
