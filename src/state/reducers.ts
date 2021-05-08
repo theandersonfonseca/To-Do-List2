@@ -41,10 +41,29 @@ export const ToDoReducer = (state: ToDoType, action: ActionsType) => {
           return {...list, tasks: [...list.tasks, {
             id: uniqueID(), 
             description: action.payload, 
-            complete: false
+            complete: false,
+            editing: false
           }]}
         }
 
+        return list
+      })}
+
+    case Actions.editingTask:
+      return {...state, lists: state.lists.map(list => {
+        if (list.name === state.currentList) {
+          return {...list, tasks: list.tasks.map(task => {
+            if (task.description === action.payload) {
+              return {
+                ...task,
+                editing: !task.editing
+              }
+            }
+
+            return {...task, editing: false}
+          })}
+        }
+        
         return list
       })}
 
@@ -52,10 +71,10 @@ export const ToDoReducer = (state: ToDoType, action: ActionsType) => {
       return {...state, lists: state.lists.map(list => {
         if (list.name === state.currentList) {
           return {...list, tasks: list.tasks.map(task => {
-            if (task.description === action.payload) {
+            if (task.description === action.payload.oldValue) {
               return {
                 ...task,
-                description: action.payload
+                description: action.payload.newValue
               }
             }
 

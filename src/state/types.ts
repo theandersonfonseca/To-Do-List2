@@ -12,7 +12,8 @@ export type ListType = {
 export type TaskType = {
   id: number,
   description: string,
-  complete: boolean
+  complete: boolean,
+  editing: boolean
 }
 
 export type ReducersType = {
@@ -28,7 +29,9 @@ export enum Actions {
   completeTask = 'COMPLETE_TASK',
   editTask = 'EDIT_TASK',
   removeTask = 'REMOVE_TASK',
-  removeCompleteTasks = 'REMOVE_COMPLETE_TASKS'
+  removeCompleteTasks = 'REMOVE_COMPLETE_TASKS',
+
+  editingTask = 'EDITING_TASK'
 }
 
 export type ActionsType = 
@@ -37,10 +40,11 @@ export type ActionsType =
   | { type: Actions.removeList}
   | { type: Actions.addTask; payload: string}
   | { type: Actions.completeTask; payload: string}
-  | { type: Actions.editTask; payload: string}
+  | {type: Actions.editingTask; payload: string}
+  | { type: Actions.editTask; payload: {oldValue: string, newValue: string}}
   | { type: Actions.removeTask; payload: string}
   | { type: Actions.removeCompleteTasks};
-
+  
 export type ContextProviderType = {
-  children: JSX.Element | JSX.Element[]
+  children: React.ReactNode
 }

@@ -1,15 +1,17 @@
-import React, { createContext, useReducer } from 'react';
+import React, { createContext, useReducer, useEffect } from 'react';
 import {ToDoReducer} from './reducers'
 import {ToDoType, ContextProviderType} from './types'
 
-const toDo = {
+const localStorageData = JSON.parse(localStorage.getItem('todo') ||' {}')
+
+let toDo = Object.keys(localStorageData).length === 0 && localStorageData.constructor === Object ? {
   lists: [{
     id: 1,
     name: 'Lista Principal',
     tasks: []
   }],
   currentList: 'Lista Principal'
-}
+} : localStorageData
 
 const Context = createContext<{
   state: ToDoType;
@@ -20,7 +22,11 @@ const Context = createContext<{
 });
 
 const ContextProvider = ({ children }: ContextProviderType) => {
-  const [state, dispatch] = useReducer(ToDoReducer, toDo);
+  const [state, dispatch] = useReducer(ToDoReducer, toDo)
+
+  useEffect(() => {
+    localStorage.setItem('todo', JSON.stringify(state))
+  }, [state])
 
   return (
     <Context.Provider value={{state, dispatch}}>
