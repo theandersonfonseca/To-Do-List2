@@ -5,7 +5,7 @@ import {Actions} from '../../state/types'
 import {Context} from '../../state/context'
 
 type ToDoContainerType = {
-  children: JSX.Element | JSX.Element[];
+  children: React.ReactNode;
 }
 
 const ToDoContainer = ({children}: ToDoContainerType) => {
