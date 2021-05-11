@@ -16,11 +16,6 @@ export type TaskType = {
   editing: boolean
 }
 
-export type ReducersType = {
-  tasks: TaskType,
-  lists: ListType[]
-}
-
 export enum Actions {
   selectList = 'SELECT_LIST',
   addList = 'ADD_LIST',
