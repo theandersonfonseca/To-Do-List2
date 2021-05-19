@@ -1,108 +1,157 @@
-import {uniqueID} from '../utils/uniqueID'
-import {ToDoType, Actions, ActionsType} from './types'
+import { uniqueID } from '../utils/uniqueID'
+import { ToDoType, Actions, ActionsType } from './types'
 
 export const ToDoReducer = (state: ToDoType, action: ActionsType) => {
-  switch(action.type) {
+  switch (action.type) {
     case Actions.selectList:
-      return {...state, currentList: action.payload}
+      return { ...state, currentList: action.payload }
 
-    case Actions.addList: 
-      return {currentList: action.payload, lists: [...state.lists, {
-        id: uniqueID(),
-        name: action.payload,
-        tasks: []
-      }]}
+    case Actions.addList:
+      return {
+        currentList: action.payload,
+        lists: [
+          ...state.lists,
+          {
+            id: uniqueID(),
+            name: action.payload,
+            tasks: []
+          }
+        ]
+      }
 
     case Actions.removeList:
-      return {currentList: 'Lista Principal', lists: state.lists.filter(list => list.name !== state.currentList
-      )}
-      
-    case Actions.completeTask: 
-      return {...state, lists: state.lists.map(list => {
-        if (list.name === state.currentList) {
-          return {...list, tasks: list.tasks.map(task => {
-            if (task.description === action.payload) {
-              return {
-                ...task,
-                complete: !task.complete
-              }
+      return {
+        currentList: 'Lista Principal',
+        lists: state.lists.filter((list) => list.name !== state.currentList)
+      }
+
+    case Actions.completeTask:
+      return {
+        ...state,
+        lists: state.lists.map((list) => {
+          if (list.name === state.currentList) {
+            return {
+              ...list,
+              tasks: list.tasks.map((task) => {
+                if (task.description === action.payload) {
+                  return {
+                    ...task,
+                    complete: !task.complete
+                  }
+                }
+
+                return task
+              })
             }
+          }
 
-            return task
-          })}
-        }
-        
-        return list
-      })}
+          return list
+        })
+      }
 
-    case Actions.addTask: 
-      return {...state, lists: state.lists.map(list => {
-        if (list.name === state.currentList) {
-          return {...list, tasks: [...list.tasks, {
-            id: uniqueID(), 
-            description: action.payload, 
-            complete: false,
-            editing: false
-          }]}
-        }
+    case Actions.addTask:
+      return {
+        ...state,
+        lists: state.lists.map((list) => {
+          if (list.name === state.currentList) {
+            return {
+              ...list,
+              tasks: [
+                ...list.tasks,
+                {
+                  id: uniqueID(),
+                  description: action.payload,
+                  complete: false,
+                  editing: false
+                }
+              ]
+            }
+          }
 
-        return list
-      })}
+          return list
+        })
+      }
 
     case Actions.editingTask:
-      return {...state, lists: state.lists.map(list => {
-        if (list.name === state.currentList) {
-          return {...list, tasks: list.tasks.map(task => {
-            if (task.description === action.payload) {
-              return {
-                ...task,
-                editing: !task.editing
-              }
-            }
+      return {
+        ...state,
+        lists: state.lists.map((list) => {
+          if (list.name === state.currentList) {
+            return {
+              ...list,
+              tasks: list.tasks.map((task) => {
+                if (task.description === action.payload) {
+                  return {
+                    ...task,
+                    editing: !task.editing
+                  }
+                }
 
-            return {...task, editing: false}
-          })}
-        }
-        
-        return list
-      })}
+                return { ...task, editing: false }
+              })
+            }
+          }
+
+          return list
+        })
+      }
 
     case Actions.editTask:
-      return {...state, lists: state.lists.map(list => {
-        if (list.name === state.currentList) {
-          return {...list, tasks: list.tasks.map(task => {
-            if (task.description === action.payload.oldValue) {
-              return {
-                ...task,
-                description: action.payload.newValue
-              }
+      return {
+        ...state,
+        lists: state.lists.map((list) => {
+          if (list.name === state.currentList) {
+            return {
+              ...list,
+              tasks: list.tasks.map((task) => {
+                if (task.description === action.payload.oldValue) {
+                  return {
+                    ...task,
+                    description: action.payload.newValue
+                  }
+                }
+
+                return task
+              })
             }
+          }
 
-            return task
-          })}
-        }
-
-        return list
-      })}
+          return list
+        })
+      }
 
     case Actions.removeTask:
-      return {...state, lists: state.lists.map(list => {
-        if (list.name === state.currentList) {
-          return {...list, tasks: list.tasks.filter(task => task.description !== action.payload)}
-        }
+      return {
+        ...state,
+        lists: state.lists.map((list) => {
+          if (list.name === state.currentList) {
+            return {
+              ...list,
+              tasks: list.tasks.filter(
+                (task) => task.description !== action.payload
+              )
+            }
+          }
 
-        return list
-      })}
+          return list
+        })
+      }
 
     case Actions.removeCompleteTasks:
-      return {...state, lists: state.lists.map(list => {
-        if (list.name === state.currentList) {
-          return {...list, tasks: list.tasks.filter(task => !task.complete)}
-        }
+      return {
+        ...state,
+        lists: state.lists.map((list) => {
+          if (list.name === state.currentList) {
+            return {
+              ...list,
+              tasks: list.tasks.filter((task) => !task.complete)
+            }
+          }
 
-        return list
-      })}
-      
+          return list
+        })
+      }
+
     default:
       return state
   }

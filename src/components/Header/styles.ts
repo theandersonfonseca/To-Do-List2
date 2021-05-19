@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from 'styled-components'
 
 export const Wrapper = styled.header`
   ${({ theme }) => css`
@@ -11,7 +11,7 @@ export const Wrapper = styled.header`
     max-width: 100%;
     background: ${theme.gray};
   `}
-`;
+`
 
 export const Title = styled.h1`
   ${({ theme }) => css`
@@ -19,4 +19,4 @@ export const Title = styled.h1`
     font-size: 5rem;
     color: ${theme.dark};
   `}
-`;
+`

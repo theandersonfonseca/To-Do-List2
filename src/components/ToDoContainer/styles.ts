@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from 'styled-components'
 
 export const Wrapper = styled.main`
   ${({ theme }) => css`
@@ -10,35 +10,33 @@ export const Wrapper = styled.main`
     background: ${theme.white};
     position: relative;
 
-    @media(max-width: 1200px) {
+    @media (max-width: 1200px) {
       width: 95%;
     }
 
-    @media(max-width: 600px) {
+    @media (max-width: 600px) {
       height: auto;
     }
   `}
-`;
+`
 
 export const WrapperControls = styled.div`
-  ${({ theme }) => css` 
-    position: absolute;
-    bottom: 1rem;
-    right: 1rem;
-  `}
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
 `
 
 export const RemoveCompleteTasks = styled.span`
-  ${({ theme }) => css` 
+  ${({ theme }) => css`
     text-transform: uppercase;
     color: ${theme.red};
     font-weight: 600;
     font-size: 1.1rem;
-    cursor: pointer;    
+    cursor: pointer;
   `}
 `
 export const RemoveList = styled.span`
-  ${({ theme }) => css` 
+  ${({ theme }) => css`
     margin-left: 3rem;
     text-transform: uppercase;
     color: ${theme.red};

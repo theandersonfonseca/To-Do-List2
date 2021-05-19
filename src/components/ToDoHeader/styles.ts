@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from 'styled-components'
 
 export const Wrapper = styled.header`
   ${({ theme }) => css`
@@ -18,15 +18,15 @@ export const Wrapper = styled.header`
       max-width: 100%;
       border: none;
       background: inherit;
-      border-bottom: .2rem solid ${theme.dark};
+      border-bottom: 0.2rem solid ${theme.dark};
     }
 
-    @media(max-width: 900px) {
+    @media (max-width: 900px) {
       flex-direction: column;
       height: auto;
     }
   `}
-`;
+`
 
 export const Button = styled.button`
   ${({ theme }) => css`
@@ -60,12 +60,12 @@ export const Lists = styled.div`
   display: flex;
   align-items: center;
 
-  @media(max-width: 900px) {
+  @media (max-width: 900px) {
     margin-top: 3rem;
   }
 
-  @media(max-width: 450px) {
-    flex-direction: column; 
+  @media (max-width: 450px) {
+    flex-direction: column;
   }
 `
 export const ListSelect = styled.select`
@@ -89,8 +89,8 @@ export const NewListButton = styled(Button)`
   ${({ theme }) => css`
     background: ${theme.dark};
 
-    @media(max-width: 450px) {
-      margin-top: 3rem; 
+    @media (max-width: 450px) {
+      margin-top: 3rem;
     }
   `}
 `
@@ -98,12 +98,12 @@ export const NewListButton = styled(Button)`
 export const NewListForm = styled.form`
   display: flex;
 
-  @media(max-width: 900px) {
+  @media (max-width: 900px) {
     margin-top: 3rem;
   }
 
-  @media(max-width: 450px) {
-    flex-direction: column; 
+  @media (max-width: 450px) {
+    flex-direction: column;
   }
 `
 export const NewListInput = styled.input`
@@ -123,4 +123,3 @@ export const NewListCancelButton = styled(Button)`
     margin-top: 1.5rem;
   `}
 `
-

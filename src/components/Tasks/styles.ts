@@ -1,10 +1,10 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from 'styled-components'
 
 export const Wrapper = styled.div`
   ${({ theme }) => css`
     padding: 0 3rem;
     height: calc(100% - 11rem);
-    overflow-y: scroll; 
+    overflow-y: scroll;
 
     ::-webkit-scrollbar-track {
       background-color: ${theme.white};
@@ -17,12 +17,12 @@ export const Wrapper = styled.div`
       background: ${theme.dark};
     }
 
-    @media(max-width: 600px) {
+    @media (max-width: 600px) {
       padding: 1.5rem;
       overflow-y: auto;
     }
   `}
-`;
+`
 
 export const Task = styled.div`
   ${({ theme }) => css`
@@ -31,7 +31,7 @@ export const Task = styled.div`
     border-bottom: solid 0.1rem ${theme.gray};
     padding: 2rem 0;
   `}
-`;
+`
 
 export const Check = styled.span`
   ${({ theme }) => css`
@@ -49,32 +49,32 @@ export const Check = styled.span`
       border: solid 0.1rem ${theme.white};
     }
   `}
-`;
+`
 
 export const Description = styled.p`
   ${({ theme }) => css`
-      display: inline-block;
-      margin-left: 3rem;
-      color: ${theme.dark};
-      word-break: break-word;  
-      font-size: 1.6rem;
+    display: inline-block;
+    margin-left: 3rem;
+    color: ${theme.dark};
+    word-break: break-word;
+    font-size: 1.6rem;
 
-      &.checked {
-        text-decoration: line-through;
-        color: ${theme.gray};
-      }
+    &.checked {
+      text-decoration: line-through;
+      color: ${theme.gray};
+    }
 
-      @media(max-width: 600px) {
-        margin-left: 1.5rem;
-      }
+    @media (max-width: 600px) {
+      margin-left: 1.5rem;
+    }
   `}
-`;
+`
 
 export const Controls = styled.div`
   display: flex;
   justify-content: flex-end;
   flex: 1;
-`;
+`
 
 export const Edit = styled.i`
   ${({ theme }) => css`
@@ -84,7 +84,7 @@ export const Edit = styled.i`
     margin-left: 3rem;
     color: ${theme.blue};
   `}
-`;
+`
 
 export const Remove = styled.i`
   ${({ theme }) => css`
@@ -94,7 +94,7 @@ export const Remove = styled.i`
     margin-left: 1.5rem;
     color: ${theme.red};
   `}
-`;
+`
 
 export const CheckIcon = styled.i`
   ${({ theme }) => css`
@@ -103,7 +103,7 @@ export const CheckIcon = styled.i`
     color: ${theme.white};
     pointer-events: none;
   `}
-`;
+`
 
 export const EditTaskForm = styled.form`
   ${({ theme }) => css`
@@ -113,7 +113,7 @@ export const EditTaskForm = styled.form`
     max-width: 100%;
     color: ${theme.blue};
   `}
-`;
+`
 
 export const EditTaskInput = styled.input`
   border: none;
